@@ -1,7 +1,9 @@
 var express = require("express");
 var app = express();
+var bodyParser = require("body-parser");
 
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", function(req, res) {
   res.render("landing");
@@ -14,7 +16,17 @@ app.get("/campgrounds", function(req, res) {
     { name: "Mountain Goat's Rest", image: "https://farm1.staticflickr.com/112/316612921_f23683ca9d.jpg"},
   ]
   res.render("campgrounds", {campgrounds: campgrounds});
-})
+});
+
+app.post("/campgrounds", function(req, res) {
+  res.send("YOU HIT THE POST ROUTE!!");
+  // get data from form and add to campgrounds array
+  // redirect back to campgrounds page
+});
+
+app.get("/campgrounds/new", function(req, res) {
+  res.render("new.ejs");
+});
 
 app.listen(3000, function(){
   console.log("The YelpCamp Server Has Started!!");
