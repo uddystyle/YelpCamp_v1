@@ -21,6 +21,7 @@
 `touch views/partials/footer.ejs`
 
 >body-parser
+
 `npm install body-parser --save`
 
 `app.js: var bodyParser = require("body-parser")`
