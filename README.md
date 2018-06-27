@@ -1,39 +1,21 @@
-# YelpCamp V1
+# YelpCamp v2
 
->ルートパスにランディングページ実装 landing.ejs
+# Add Mongoose
+* Install and configure Mongoose
+* Setup campground model
+* Use campground model inside
 
-`"/" render("landing")`
+# Show Page
+* Review the RESTful routes we've seen so for
+* Add description to our campground model
+* Show db.collection.drop()
+* Add a show route/templete
 
->campgroundページ作成 campgrounds.ejs ランディングページからurlリンク
+RESTFUL ROUTES
 
-`<a href="/campgrounds">View All Campgrounds</a>`
-
->campgroundsページでcampgrounds変数を使えるようにする
-
-`app.js: res.render("campgrounds", {campgrounds: campgrounds});`
-
-`campgrounds.ejs: <%= campgrounds %>`
-
-`mkdir views/partials`
-
-`touch views/partials/header.ejs`
-
-`touch views/partials/footer.ejs`
-
->body-parser
-
-`npm install body-parser --save`
-
-`app.js: var bodyParser = require("body-parser")`
-
-`app.js: app.use(bodyParser.urlencoded({extended: true}))`
-
->new.ejs
-
-```
-app.get("/campgrounds/new", function(req, res) {
-  res.render("new.ejs");
-});
-```
-
-`touch views/new.ejs`
+name       url        verb    desc.
+====================================================
+INDEX     /dogs       GET     Display a list of all dog
+NEW       /dogs/new   GET     Display from to make a new dog
+CREATE    /dogs       POST    Add new dog to DB
+SHOW      /dogs/:id   GET     Shows info about one dog
